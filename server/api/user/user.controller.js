@@ -1,4 +1,4 @@
-const userModel = require('./user.model');
+const UserModel = require('./user.model');
 
 exports.getUsers = (req, res, next) => {
     res.status(200).json({
@@ -7,7 +7,7 @@ exports.getUsers = (req, res, next) => {
 };
 
 exports.createUser = (req, res, next) => {
-    const newUser = new userModel({ name: req.body.name });
+    const newUser = new UserModel({ name: req.body.name });
     newUser
     .save()
     .then((result) => { 
