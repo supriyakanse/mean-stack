@@ -1,5 +1,5 @@
 var express = require('express');
-var usersRouter = require('./api/user/user.route.');
+var usersRouter = require('./api/user/user.route');
 
 var app = express();
 
