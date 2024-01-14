@@ -37,13 +37,23 @@ exports.createUser = (req, res, next) => {
 exports.getUserById = (req, res, next) => {
     UserModel.findById(req.params.id).then((result) => {
         if (result) {
-            res.status(200).json(result);   
+            res.status(200).json(result);
         } else {
-            res.status(200).json({ msg: 'User not found'});
+            res.status(200).json({ msg: 'User not found' });
         }
     }).catch(err => {
         res.status(404).json({
             error: err
+        });
+    });
+};
+
+exports.deleteUserById = (req, res, next) => {
+    UserModel.findByIdAndDelete(req.params.id).then((result) => {
+        res.status(200).json(result);
+    }).catch(err => {
+        res.status(404).json({
+            msg: 'User not found'
         });
     });
 };
