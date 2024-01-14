@@ -21,7 +21,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.json());
 app.use('/users', usersRouter);
 
 app.listen(3000, () => {
