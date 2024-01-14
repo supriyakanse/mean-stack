@@ -40,6 +40,8 @@ export class AppComponent {
     this.http.post('http://localhost:3000/users', this.newUser).subscribe({
       next: (res: any) => {
         console.log(res);
+        this.newUser.firstName = '';
+        this.newUser.lastName = '';
         this.getUsers();
       },
       error: (err) => {
