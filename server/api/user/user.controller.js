@@ -36,7 +36,11 @@ exports.createUser = (req, res, next) => {
 
 exports.getUserById = (req, res, next) => {
     UserModel.findById(req.params.id).then((result) => {
-        res.status(200).json(result);
+        if (result) {
+            res.status(200).json(result);   
+        } else {
+            res.status(200).json({ msg: 'User not found'});
+        }
     }).catch(err => {
         res.status(404).json({
             error: err
