@@ -40,10 +40,21 @@ export class AppComponent {
     this.http.post('http://localhost:3000/users', this.newUser).subscribe({
       next: (res: any) => {
         console.log(res);
+        this.getUsers();
       },
       error: (err) => {
         console.log(err);
       },
     })
+  }
+
+  deleteUser(id: any) {
+    this.http.delete('http://localhost:3000/users/' + id).subscribe({
+      next: (res: any) => {
+        this.getUsers();
+      },
+      error: (err: any) => {
+      },
+    });
   }
 }
